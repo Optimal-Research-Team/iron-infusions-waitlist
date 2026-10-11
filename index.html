@@ -114,6 +114,7 @@
       .ir-hero-bg::after { background: linear-gradient(180deg, rgba(30,53,25,0.45) 0%, rgba(30,53,25,0) 22%, rgba(30,53,25,0) 55%, #1E3519 100%); }
       .ir-hero-copy { padding-top: 400px !important; }
       .ir-hero-inset { display: none !important; }
+      .ir-mcard { display: block !important; }
       .ir-steps-line { display: none; }
     }
     @media (max-width: 760px) {
@@ -179,6 +180,10 @@
       </div>
     </div>
     </div>
+    <a href="#clinic" class="ir-mcard" style="display:none;margin:24px 20px 0;background:#FFFFFF;border:1px solid #E3DED4;border-radius:16px;padding:8px 8px 12px;text-decoration:none;color:#252525;box-shadow:0 10px 28px rgba(30,53,25,0.10)">
+      <img src="img/d4c3e91e2d1329d9ff282b372fd5f06b.jpg" alt="Reception and lounge at Optimal Clinic in Barrie" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:10px;display:block">
+      <span style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:11px;padding:0 6px;font-size:15px;line-height:1.35"><span><strong style="font-weight:600">Our clinic</strong> · Huronia Rd, Barrie</span><span style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#2C4E25;white-space:nowrap">See inside<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2C4E25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6l-6 6"></path></svg></span></span>
+    </a>
   </section>
 
   <!-- ============ SYMPTOM MIRROR ============ -->
@@ -607,6 +612,10 @@
         <figcaption style="position:absolute;left:16px;bottom:16px;background:rgba(255,252,247,0.94);color:#252525;font-size:14px;font-weight:600;padding:7px 14px;border-radius:48px">Waiting lounge</figcaption>
       </figure>
       <figure style="margin:0;flex:0 0 min(920px, 84vw);scroll-snap-align:start;position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/2;background:#E9E3D8">
+        <img loading="lazy" decoding="async" src="img/81e4ae3d68abdae9c5512afdac7c1222.jpg" alt="A quiet corner of the lounge with green tile, a bonsai and soft chairs" style="width:100%;height:100%;object-fit:cover;display:block">
+        <figcaption style="position:absolute;left:16px;bottom:16px;background:rgba(255,252,247,0.94);color:#252525;font-size:14px;font-weight:600;padding:7px 14px;border-radius:48px">A quiet corner</figcaption>
+      </figure>
+      <figure style="margin:0;flex:0 0 min(920px, 84vw);scroll-snap-align:start;position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/2;background:#E9E3D8">
         <img loading="lazy" decoding="async" src="img/c0a045e43b33c503fb95c1bb73b4e966.jpg" alt="Reception and the hallway to the treatment rooms" style="width:100%;height:100%;object-fit:cover;display:block">
         <figcaption style="position:absolute;left:16px;bottom:16px;background:rgba(255,252,247,0.94);color:#252525;font-size:14px;font-weight:600;padding:7px 14px;border-radius:48px">Treatment rooms</figcaption>
       </figure>
@@ -621,7 +630,7 @@
       <div style="max-width:1345px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
         <span style="display:inline-flex;align-items:center;gap:8px;font-size:15px;color:#474747"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2C4E25" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0c0 5.3-7 11.5-7 11.5z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>630 Huronia Rd, Unit 5, Barrie</span>
         <div style="display:flex;align-items:center;gap:10px">
-          <span style="font-size:15px;color:#5E5B55;min-width:44px;text-align:right">{{ slideNum }} / 4</span>
+          <span style="font-size:15px;color:#5E5B55;min-width:44px;text-align:right">{{ slideNum }} / 5</span>
           <button onClick="{{ railPrev }}" aria-label="Previous photo" style="width:46px;height:46px;border-radius:50%;border:1px solid #2C4E25;background:#FFFCF7;display:inline-flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:#EEF2EC"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2C4E25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"></path><path d="M11 6l-6 6l6 6"></path></svg></button>
           <button onClick="{{ railNext }}" aria-label="Next photo" style="width:46px;height:46px;border-radius:50%;border:1px solid #2C4E25;background:#2C4E25;display:inline-flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:#24421E"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFCF7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6l-6 6"></path></svg></button>
         </div>
@@ -1061,7 +1070,7 @@ class Component extends DCLogic {
       const first = el && el.firstElementChild;
       if (!first) return;
       const w = first.getBoundingClientRect().width + 16;
-      const i = Math.max(0, Math.min(3, Math.round(el.scrollLeft / w)));
+      const i = Math.max(0, Math.min(4, Math.round(el.scrollLeft / w)));
       if (i !== this.state.slide) this.setState({ slide: i });
     };
 
