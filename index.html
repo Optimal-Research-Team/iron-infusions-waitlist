@@ -100,6 +100,7 @@
       .ir-swipe > * { flex: 0 0 84%; scroll-snap-align: center; }
       .ir-swipe-hint { display: block !important; }
       .ir-heronav a:not(:last-child) { display: none !important; }
+      .ir-hero-path2 { border-left: 0 !important; border-top: 1px solid rgba(255,255,255,0.14); }
       .ir-tick-item { font-size: 14.5px !important; padding: 0 20px !important; }
       .ir-ticker-track { padding: 14px 0 !important; animation-duration: 45s; }
       .ir-heronav { flex-wrap: nowrap !important; width: max-content; }
@@ -164,7 +165,10 @@
           <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
             <p style="margin:12px 0 0;font-size:14px;line-height:1.4;color:#FFD9CF">{{ error }}</p>
           </sc-if>
-          <p style="margin:14px 0 0;max-width:589px;text-align:center;font-size:14px;line-height:1.5;color:rgba(255,255,255,0.75)">Free — takes 10 seconds. No payment, no commitment.</p>
+          <div class="ir-hero-paths" style="margin-top:14px;max-width:589px;display:grid;grid-template-columns:repeat(auto-fit, minmax(min(250px, 100%), 1fr));border:1px solid rgba(255,255,255,0.18);border-radius:14px;background:rgba(255,255,255,0.05);overflow:hidden">
+            <div style="display:flex;gap:11px;align-items:flex-start;padding:14px 16px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#87A482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"></path></svg><div style="font-size:14.5px;line-height:1.45;color:rgba(255,255,255,0.78)"><strong style="display:block;color:#FFFFFF;font-weight:600">Booking yourself?</strong>No referral needed. Just your email — free, no payment.</div></div>
+            <div class="ir-hero-path2" style="display:flex;gap:11px;align-items:flex-start;padding:14px 16px;border-left:1px solid rgba(255,255,255,0.14)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#87A482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;margin-top:1px"><path d="M7 3h7l4 4v14H7z"></path><path d="M14 3v4h4"></path><path d="M10 12h5"></path><path d="M10 16h5"></path></svg><div style="font-size:14.5px;line-height:1.45;color:rgba(255,255,255,0.78)"><strong style="display:block;color:#FFFFFF;font-weight:600">Referred by a doctor or NP?</strong>They can fax our <a href="referral-form.html" style="color:#FFFFFF;font-weight:600;text-decoration:underline;text-decoration-color:rgba(135,164,130,0.9);text-underline-offset:3px;white-space:nowrap" style-hover="color:#D9E4D5">one-page form →</a></div></div>
+          </div>
         </sc-if>
         <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
           <a href="#waitlist" style="display:inline-flex;align-items:center;gap:10px;background:#FFFFFF;color:#1A500F;border-radius:48px;padding:14px 26px;font-size:17px;font-weight:500;text-decoration:none;box-shadow:0 4px 25px rgba(0,0,0,0.16)"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1A500F"></circle><path d="M7.5 12.5l3 3l6 -6.5" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>You’re on the list — details below</a>
