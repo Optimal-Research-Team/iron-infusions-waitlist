@@ -48,6 +48,8 @@
     .ir-rail::-webkit-scrollbar { display: none; }
     .ir-sticky { display: none; }
     .ir-heronav { width: max-content; }
+    .ir-tabs button:focus { outline: none; }
+    .ir-tabs button:focus-visible { outline: 2px solid #87A482; outline-offset: 2px; }
     .ir-topbar { display: flex; }
     @media (max-width: 1100px) { .ir-topnav { display: none !important; } }
     .ir-who:hover .ir-who-img { transform: scale(1.05); }
@@ -119,6 +121,7 @@
       .ir-hero-media { order: -1; }
       .ir-hero-photo { height: clamp(280px, 62vw, 420px) !important; }
       .ir-tabs { display: grid !important; grid-template-columns: 1fr 1fr; width: 100%; }
+      .ir-br { display: none; }
       .ir-tabs button { justify-content: center; padding: 10px 8px !important; font-size: 14.5px !important; }
       .ir-mcard { display: block !important; }
       .ir-steps-line { display: none; }
@@ -151,17 +154,17 @@
 
       <div class="ir-hero-grid" style="max-width:1345px;margin:0 auto;display:grid;grid-template-columns:minmax(0, 1.04fr) minmax(0, 0.96fr);gap:clamp(40px, 6vw, 96px);align-items:center">
         <div class="ir-hero-copy" style="max-width:640px">
-          <h1 style="font-family:'Castoro',serif;font-weight:400;font-size:clamp(44px, 4.6vw, 70px);line-height:1.02;letter-spacing:-0.04em;color:#252525;margin:0 0 20px;text-wrap:balance">Exhausted by low iron? Restore it in as little as <em style="color:#2C4E25">one visit</em>.</h1>
-          <p style="margin:0 0 30px;font-size:clamp(17px, 1.4vw, 20px);line-height:1.5;color:#474747;max-width:560px;text-wrap:pretty">A nurse practitioner-led IV iron program in Barrie, for people who’ve been told to “just take the pills” for years.</p>
+          <h1 style="font-family:'Castoro',serif;font-weight:400;font-size:clamp(42px, 4.3vw, 64px);line-height:1.04;letter-spacing:-0.035em;color:#252525;margin:0 0 22px;text-wrap:pretty">Exhausted by low iron?<br class="ir-br"> Restore it in as little as <em style="color:#2C4E25">one visit</em>.</h1>
+          <p style="margin:0 0 32px;font-size:clamp(17px, 1.4vw, 20px);line-height:1.5;color:#474747;max-width:540px;text-wrap:pretty">A nurse practitioner-led IV iron program in Barrie, for people who’ve been told to “just take the pills” for years.</p>
 
-          <div role="tablist" aria-label="How you’re coming to us" class="ir-tabs" style="display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;background:#EFEAE1;border-radius:48px;margin-bottom:14px">
+          <div role="tablist" aria-label="How you’re coming to us" class="ir-tabs" style="display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;background:#EFEAE1;border-radius:48px;margin-bottom:12px">
             <button role="tab" aria-selected="{{ tabPatientSel }}" onClick="{{ setPatient }}" style="{{ tabPatientStyle }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"></path></svg>For patients</button>
             <button role="tab" aria-selected="{{ tabProviderSel }}" onClick="{{ setProvider }}" style="{{ tabProviderStyle }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"></path><path d="M14 3v4h4"></path><path d="M10 12h5"></path><path d="M10 16h5"></path></svg>For doctors &amp; NPs</button>
           </div>
 
           <sc-if value="{{ heroPatient }}" hint-placeholder-val="{{ true }}">
             <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
-              <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:#FFFFFF;border:1px solid #DDD6CA;border-radius:48px;padding:7px 7px 7px 22px;max-width:560px;box-shadow:0 8px 24px rgba(30,53,25,0.08)">
+              <div style="box-sizing:border-box;display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:#FFFFFF;border:1px solid #DDD6CA;border-radius:48px;padding:6px 6px 6px 22px;max-width:576px;box-shadow:0 8px 24px rgba(30,53,25,0.08)">
                 <label for="hero-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label>
                 <input id="hero-email" value="{{ email }}" onChange="{{ onEmail }}" onKeyDown="{{ heroEnter }}" placeholder="Your email address" type="email" style="flex:1 1 180px;min-width:0;border:0;outline:none;background:transparent;font-family:'Public Sans',sans-serif;font-size:17px;letter-spacing:-0.02em;color:#040504;padding:10px 0">
                 <button onClick="{{ submitHero }}" style="background:#2C4E25;color:#FFFCF7;border:0;border-radius:48px;padding:13px 26px;font-family:'Public Sans',sans-serif;font-size:18px;font-weight:500;letter-spacing:-0.02em;cursor:pointer;white-space:nowrap" style-hover="background:#24421E" style-active="transform:scale(0.98)">Save my founding spot →</button>
@@ -177,7 +180,7 @@
           </sc-if>
 
           <sc-if value="{{ heroProvider }}" hint-placeholder-val="{{ false }}">
-            <div style="max-width:576px;background:#FFFFFF;border:1px solid #DDD6CA;border-radius:22px;padding:18px 18px 18px 22px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;box-shadow:0 8px 24px rgba(30,53,25,0.08)">
+            <div style="box-sizing:border-box;max-width:576px;background:#FFFFFF;border:1px solid #DDD6CA;border-radius:24px;padding:18px 18px 18px 22px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;box-shadow:0 8px 24px rgba(30,53,25,0.08)">
               <div style="flex:1 1 230px;font-size:15.5px;line-height:1.5;color:#474747"><strong style="display:block;color:#252525;font-weight:600">One page, mostly checkboxes.</strong>Fax it with recent labs to <a href="tel:+18333700320" style="color:#252525;font-weight:700;text-decoration:none;white-space:nowrap">(833) 370-0320</a>.</div>
               <a href="referral-form.html" style="display:inline-flex;align-items:center;gap:8px;background:#2C4E25;color:#FFFCF7;padding:13px 22px;border-radius:48px;font-size:17px;font-weight:500;text-decoration:none;white-space:nowrap" style-hover="background:#24421E;color:#FFFCF7">Open the referral form →</a>
             </div>
