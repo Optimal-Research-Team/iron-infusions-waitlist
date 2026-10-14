@@ -21,5 +21,8 @@ This is a **review build for clinical sign-off**, not the production page:
 | `referral-form.html` | One-page MD/NP referral form (print or save as PDF, then fax) |
 | `support.js` | Rendering runtime the pages need |
 | `img/` | Photos, engravings and the social preview image |
+| `referral-form.pdf` | Print-ready Letter PDF of the referral form |
+| `source/` | Claude Design source files |
+| `HANDOFF.md` | Engineering handoff: structure, behaviour, wiring, SEO, tokens, open items |
 
 The source of truth is the Claude Design project. This repo holds an exported copy.
